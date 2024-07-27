@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>คำนวณมูลค่าในอนาคต</title>
+  <style>
+    /* CSS styles here */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    input[type="number"] {
+      width: 150px;
+      padding: 10px;
+      margin: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2>คำนวณมูลค่าในอนาคต</h2>
+  <label for="presentValue">เงินต้น:</label>
+  <input type="number" id="presentValue" placeholder="ใส่จำนวนเงิน">
+  <br>
+  <label for="interestRate">อัตราดอกเบี้ย (%):</label>
+  <input type="number" id="interestRate" placeholder="ใส่เปอร์เซ็นต์">
+  <br>
+  <label for="numberOfYears">จำนวนปี:</label>
+  <input type="number" id="numberOfYears" placeholder="ใส่จำนวนปี">
+  <br>
+  <button onclick="calculateFutureValue()">คำนวณ</button>
+  <p id="result"></p>
+
+  <script>
+    function calculateFutureValue() {
+      const presentValue = parseFloat(document.getElementById('presentValue').value);
+      const interestRate = parseFloat(document.getElementById('interestRate').value) / 100;
+      const numberOfYears = parseFloat(document.getElementById('numberOfYears').value);
+
+      const futureValue = presentValue * Math.pow(1 + interestRate, numberOfYears);
+
+      document.getElementById('result').textContent = `มูลค่าในอนาคต: ${futureValue.toFixed(2)} บาท`;
+    }
+  </script>
+</body>
+</html>
